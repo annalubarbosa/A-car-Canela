@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Açúcar & Canela</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header class="navbar">
+            <div class="logo-and-name">
+                <div class="logo">
+                    <img
+                        src="assets/WhatsApp Image 2025-11-25 at 14.14.34 (1).jpeg"
+                        class="logo"
+                        alt="Logo Açúcar & Canela"
+                    />
+                </div>
+                <div class="names">
+                    <span class="nome">Padaria </span>
+                    <span class="acucarcanela">Açúcar & Canela</span>
+                </div>
+            </div>
+            <div class="nav">
+                <button class="active" onclick="filtrarCategoria('todos')">
+                    Todos
+                </button>
+                <button onclick="filtrarCategoria('paes')">Pães</button>
+                <button onclick="filtrarCategoria('bolos')">Bolos</button>
+                <button onclick="filtrarCategoria('doces')">Doces</button>
+                <button onclick="filtrarCategoria('tortas')">Tortas</button>
+                <button onclick="filtrarCategoria('salgados')">Salgados</button>
+            </div>
+
+            <input
+                class="pesquisarProduto"
+                placeholder="Produtos"
+                oninput="pesquisarProduto(this.value)"
+            />
+            <button class="cadastro" onclick="toggleLogin()">
+                Entrar/Cadastrar
+            </button>
+        </header>
+
+        <div class="cardapio" id="cardapio"></div>
+        <div class="carrinho" id="carrinho">
+            <span class="icon"
+                ><img src="assets/carrinho-vazio.png" alt=""
+            /></span>
+        </div>
+
+        <div class="login-modal" id="loginModal">
+            <h2>Login / Cadastro</h2>
+            <input type="text" id="usuario" placeholder="Usuário" />
+            <input type="password" id="senha" placeholder="Senha" />
+            <button onclick="login()">Entrar</button>
+            <button onclick="registrar()">Cadastrar</button>
+            <button onclick="toggleLogin()">Fechar</button>
+        </div>
+        <main class="checkout-container">
+            <section class="resumo-pedido">
+                <h2>Histórico do Pedido</h2>
+                <div id="lista-itens"></div>
+                <p>
+                    <strong
+                        >Total: R$ <span id="total-pedido">0,00</span></strong
+                    >
+                </p>
+            </section>
+
+            <section class="dados-cliente">
+                <h2>Seus dados</h2>
+                <form class="form-finalizar" id="form-finalizar">
+                    <label
+                        >Nome:
+                        <input type="text" id="nome" required />
+                    </label>
+                    <label
+                        >Telefone:
+                        <input type="tel" id="telefone" required />
+                    </label>
+                    <label
+                        >Forma de pagamento:
+                        <select id="pagamento" required>
+                            <option value="">Selecione</option>
+                            <option value="dinheiro">Dinheiro</option>
+                            <option value="cartao">Cartão</option>
+                            <option value="pix">PIX</option>
+                        </select>
+                    </label>
+                    <label
+                        >Observações:
+                        <textarea id="observacoes" rows="3"></textarea>
+                    </label>
+                    <button type="submit">Confirmar Pedido</button>
+                </form>
+            </section>
+        </main>
+        <script src="main.js"></script>
+        <script src="finalizar.js"></script>
+    </body>
+</html>
